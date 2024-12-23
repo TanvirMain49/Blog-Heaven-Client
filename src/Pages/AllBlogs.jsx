@@ -1,7 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Card from "../Component/Card";
+import axios from "axios";
 
 const AllBlogs = () => {
+  const [blogs, setBlogs] = useState([]);
+  useEffect(()=>{
+    fetchAllBlogs();
+  }, [])
+
+  const fetchAllBlogs = async()=>{
+    const {data} = await axios.get(`http://localhost:4000/all-blogs`);
+    setBlogs(data);
+    return blogs
+  }
+  console.log(blogs);
+
   return (
     <div>
       <div className="flex justify-center items-center gap-4 w-10/12 mx-auto pb-8">
@@ -24,15 +37,10 @@ const AllBlogs = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-4 gap-4 w-10/12 mx-auto">
-        <Card></Card>
-        <Card></Card>
-        <Card></Card>
-        <Card></Card>
-        <Card></Card>
-        <Card></Card>
-        <Card></Card>
-        <Card></Card>
+      <div className="grid grid-cols-3 gap-3 w-10/12 mx-auto">
+        {
+          blogs.map(blog=><Card key={blog._id} blog={blog}></Card>)
+        }
       </div>
     </div>
   );
