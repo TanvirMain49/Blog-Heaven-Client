@@ -9,7 +9,7 @@ const BlogCards = () => {
   }, []);
 
   const fetchAllBlogs = async () => {
-    const { data } = await axios.get(`http://localhost:4000/all-blogs`);
+    const { data } = await axios.get(`${import.meta.env.VITE_API_CALL}all-blogs`);
     setBlogs(data);
   };
   return (
