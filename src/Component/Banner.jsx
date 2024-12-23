@@ -13,7 +13,7 @@ function App() {
     <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
       <SwiperSlide>
         <BlogSlide
-          imageSrc="https://plus.unsplash.com/premium_photo-1677626249490-de48e5550947?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          imageSrc="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           title="Top 10 Destinations for Solo Travelers"
           description="Explore the best places around the world for solo travel. From peaceful beaches to thrilling city adventures, these destinations will make your journey unforgettable."
         />
@@ -21,7 +21,7 @@ function App() {
       <SwiperSlide>
         {" "}
         <BlogSlide
-          imageSrc="https://images.unsplash.com/photo-1426604966848-d7adac402bff?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          imageSrc="https://plus.unsplash.com/premium_photo-1683375867672-48cc6f6eaeea?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           title="Playing skateboard"
           description="Skateboarding is a fun and dynamic sport that offers endless freedom and creativity. Whether you're cruising the streets or mastering new tricks, it’s a great way to stay active and express yourself. Join the ride and experience the excitement of skateboarding!"
         />

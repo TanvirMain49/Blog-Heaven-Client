@@ -1,9 +1,13 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
+import axios from "axios";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const AddBlogs = () => {
   const { user } = useContext(AuthContext);
-  const handleSubmit = (e) => {
+  const navigation = useNavigate();
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     // Extract values into variables
@@ -28,8 +32,13 @@ const AddBlogs = () => {
 
     console.log(blogPost);
 
-    // Reset form
-    e.target.reset();
+    const { data } = await axios.post(`${import.meta.env.VITE_API_CALL}blogs`, blogPost);
+    console.log("Blog created successfully:", data);
+    Swal.fire({
+      title: "Blog added successfully",
+      icon: "success",
+    });
+    navigation("/allBlogs");
   };
 
   return (

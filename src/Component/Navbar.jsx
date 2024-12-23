@@ -17,7 +17,7 @@ const Navbar = () => {
             <Link to='/'>Home</Link>
           </li>
           <li>
-            <Link to='/jobs'>All Blogs</Link>
+            <Link to='/allBlogs'>All Blogs</Link>
           </li>
 
           {!user && (
@@ -52,10 +52,10 @@ const Navbar = () => {
                 </Link>
               </li>
               <li>
-                <Link to='/my-posted-jobs'>Featured Blogs</Link>
+                <Link to='/featured-blogs'>Featured Blogs</Link>
               </li>
               <li>
-                <Link to='/my-bids'>Wishlist</Link>
+                <Link to='/my-wishlist'>Wishlist</Link>
               </li>
               <li className='mt-2'>
                 <button
