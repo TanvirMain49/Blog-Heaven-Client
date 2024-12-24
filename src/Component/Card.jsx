@@ -22,7 +22,7 @@ const Card = ({ blog }) => {
             <h5 className="mb-2 text-2xl font-bold tracking-tight">{title}</h5>
           </Link>
           <p className="mb-3 font-normal text-gray-700">
-            {longDescription?.substring(0, 180)}<span className="text-blue-500 font-semibold">...see more</span>
+            {longDescription?.substring(0, 180)}<Link to={`/all-blogs/${_id}`} className="text-blue-500 font-semibold">...see more</Link>
           </p>
         </div>
       </div>
