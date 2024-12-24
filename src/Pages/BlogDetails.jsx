@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import axios from "axios";
 import Swal from "sweetalert2";
@@ -91,12 +91,9 @@ const BlogDetails = () => {
           </div>
           {blog.userEmail === user?.email && (
             <div className="flex gap-3 items-center">
-              <div className="btn">
+              <Link to={`/update-Blogs/${blog._id}`} className="btn">
                 <MdEdit className="text-2xl" />
-              </div>
-              <div className="btn">
-                <IoHeartCircleSharp className="text-2xl" />
-              </div>
+              </Link>
             </div>
           )}
         </div>

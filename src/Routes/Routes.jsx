@@ -8,6 +8,7 @@ import AllBlogs from "../Pages/AllBlogs";
 import FeatureBlogs from "../Pages/FeatureBlogs";
 import WishList from "../Pages/WishList";
 import BlogDetails from "../Pages/BlogDetails";
+import UpdateBLog from "../Pages/UpdateBLog";
 
 const router = createBrowserRouter([
     {
@@ -45,6 +46,11 @@ const router = createBrowserRouter([
         {
             path:'/all-Blogs/:id',
             element:<BlogDetails></BlogDetails>,
+            loader: ({params}) => fetch(`${import.meta.env.VITE_API_CALL}all-blogs/${params.id}`)
+        },
+        {
+            path:'/update-Blogs/:id',
+            element:<UpdateBLog></UpdateBLog>,
             loader: ({params}) => fetch(`http://localhost:4000/all-blogs/${params.id}`)
         },
       ]
