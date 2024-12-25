@@ -9,6 +9,7 @@ import FeatureBlogs from "../Pages/FeatureBlogs";
 import WishList from "../Pages/WishList";
 import BlogDetails from "../Pages/BlogDetails";
 import UpdateBLog from "../Pages/UpdateBLog";
+import PrivetRoutes from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -33,7 +34,9 @@ const router = createBrowserRouter([
         },
         {
             path:'/addBlogs',
-            element:<AddBlogs></AddBlogs>
+            element:<PrivetRoutes>
+                <AddBlogs></AddBlogs>
+            </PrivetRoutes>
         },
         {
             path:'/featured-blogs',
@@ -41,11 +44,15 @@ const router = createBrowserRouter([
         },
         {
             path:'/my-wishlist',
-            element:<WishList></WishList>
+            element:<PrivetRoutes>
+                <WishList></WishList>
+            </PrivetRoutes>
         },
         {
             path:'/all-Blogs/:id',
-            element:<BlogDetails></BlogDetails>,
+            element:<PrivetRoutes>
+                <BlogDetails></BlogDetails>
+            </PrivetRoutes>,
             loader: ({params}) => fetch(`${import.meta.env.VITE_API_CALL}all-blogs/${params.id}`)
         },
         {

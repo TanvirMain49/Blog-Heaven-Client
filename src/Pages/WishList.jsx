@@ -1,11 +1,12 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
-import DataTable, { createTheme } from "react-data-table-component";
-import { Link } from "react-router-dom";
+import DataTable  from "react-data-table-component";
 import Swal from "sweetalert2";
 import { AuthContext } from "../Provider/AuthProvider";
+import UseAxios from "../hook/AxiosSecure";
 
 const WishList = () => {
+  const axiosInstance = UseAxios()
   const {user} = useContext(AuthContext);
   const [wish, setWish] = useState([]);
 
@@ -15,12 +16,11 @@ const WishList = () => {
 
   const fetchWishList = async () => {
     try {
-      const { data } = await axios.get(
-        `${import.meta.env.VITE_API_CALL}wishList/${user?.email}`
+      const { data } = await axiosInstance.get(
+        `wishList/${user?.email}`
       );
       setWish(data);
     } catch (err) {
-      setError("Failed to fetch data");
       console.error(err);
     }
   };
