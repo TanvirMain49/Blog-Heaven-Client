@@ -1,7 +1,6 @@
 import React from "react";
 
 const CommentSection = ({ comment }) => {
-  console.log(comment);
   return (
     <div className="chat chat-start">
       <div className="chat-image avatar">

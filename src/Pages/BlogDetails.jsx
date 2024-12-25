@@ -125,7 +125,7 @@ const BlogDetails = () => {
             className="btn bg-blue-500 text-white"
           />
         </form>
-        <div className="my-8 space-y-9">
+        <div className="my-8 space-y-4">
           <div class="mb-4 flex items-center gap-2">
             <FaCommentDots />
             <h2 class="text-lg font-bold flex items-center">
