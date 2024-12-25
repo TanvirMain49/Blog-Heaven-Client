@@ -1,12 +1,18 @@
 import React from 'react';
 import Banner from '../Component/Banner';
 import BlogCards from '../Component/BlogCards';
+import Newsletter from '../Component/Newsletter';
+import Recommended from '../Component/Recommended';
+import ReviewSection from '../Component/ReviewSection';
 
 const Home = () => {
     return (
         <div>
             <Banner></Banner>
             <BlogCards></BlogCards>
+            <Newsletter></Newsletter>
+            <Recommended></Recommended>
+            <ReviewSection></ReviewSection>
         </div>
     );
 };

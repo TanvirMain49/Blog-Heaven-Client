@@ -1,14 +1,28 @@
 import React from "react";
+import * as motion from "motion/react-client";
 
 const BlogSlide = ({ imageSrc, title, description }) => {
   return (
-    <div>
-      <div className="text-center absolute top-[0%] left-[45%] poppins-font">
+    <motion.div 
+    initial={{ opacity: 0, scale: 0 }}
+    animate={{ opacity: 1, scale: 1,}}
+    transition={{ ease: "easeOut", duration: 0.8 }} className="bg-gray-50">
+      <motion.div 
+      //  initial={{ opacity: 0, scale: 0 }}
+      //  animate={{ opacity: 1, scale: 1,}}
+      //  transition={{ ease: "easeOut", duration: 1 }} 
+       className="text-center absolute top-[0%] left-[45%]">
         <h1>
-          <span className="text-2xl">Grand</span> <br />
+          <span
+           
+            className="text-2xl"
+          >
+            Grand
+          </span>{" "}
+          <br />
           <span className="text-8xl font-bold playfair-font">Blog</span>
         </h1>
-      </div>
+      </motion.div>
       <div className="mt-20">
         <img
           src={imageSrc}
@@ -22,7 +36,7 @@ const BlogSlide = ({ imageSrc, title, description }) => {
         <div className="border border-gray-400 mx-[47%]"></div>
         <p className="text-xl text-center px-60 pt-4">{description}</p>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

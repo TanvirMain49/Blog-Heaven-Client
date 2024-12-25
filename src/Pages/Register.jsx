@@ -59,11 +59,12 @@ const Register = () => {
       });
   };
   return (
-    <div>
+    <div className="card max-w-lg border border-gray-400 mx-auto">
       <form onSubmit={handleRegister} className="card-body">
-        <h1 className="text-2xl font-bold mb:pt-8 pt-3 pb-4 text-center">
+        <h1 className="text-2xl font-bold pt-3 pb-1 text-center">
           Register Here!
         </h1>
+        <h1 className="text-base pb-4 text-center text-black">Join us now for exclusive features and updates!</h1>
         <div className="form-control space-y-3">
           <input
             type="text"
@@ -101,14 +102,14 @@ const Register = () => {
           />
         </div>
         <div className="form-control mt-3 space-y-4">
-          <button className="btn bg-[#FF204E] border-none font-bold text-white">
+          <button className="btn bg-blue-500 border-none font-bold text-white">
             Register
           </button>
           <p className="text-bold text-center">
             Do have an account?
             <Link
               to="/login"
-              className="text-[#FF204E] cursor-pointer hover:underline ml-1"
+              className="text-blue-500 cursor-pointer hover:underline ml-1"
             >
               log in here
             </Link>

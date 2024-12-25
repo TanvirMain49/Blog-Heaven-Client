@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../Provider/AuthProvider";
-import { FaGoogle } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
 
 const LogIn = () => {
   const { signInWithGoogle, logIn, setUser } = useContext(AuthContext);
@@ -49,18 +49,29 @@ const LogIn = () => {
       });
   };
   return (
-    <div className="">
-      <div className="card w-full mx-auto">
+      <div className="card max-w-lg border border-gray-400 mx-auto text-black">
         <form onSubmit={handleLogIn} className="card-body dark:text-white">
-          <h1 className="text-2xl font-bold md:pt-16 pb-4 text-center dark:text-white">
-            Log in Here!
+          <div className="flex justify-center items-center">
+          </div>
+          <h1 className="text-2xl font-bold text-center text-black">
+            Welcome Back!
           </h1>
+          <h1 className="text-base pb-4 text-center text-black">
+            Continue with Google or Enter your details
+          </h1>
+          <button
+            onClick={handleGoogle}
+            className="btn bg-gray-100 border border-blue-500 font-bold text-blue-500 md:mb-0 mb-4 hover:bg-gray-100"
+          >
+            <FcGoogle className="text-2xl" />
+            Log in with Google
+          </button>
           <div className="form-control space-y-3">
             <input
               type="email"
               placeholder="email"
               name="email"
-              className="border-y-2 px-3 py-3 my-3"
+              className="border-y-2 px-3 py-3 my-3 text-black"
               required
             />
           </div>
@@ -69,43 +80,31 @@ const LogIn = () => {
               type="password"
               placeholder="password"
               name="password"
-              className="border-y-2 px-3 py-3 mb-3"
+              className="border-y-2 px-3 py-3 mb-3 text-black"
               required
             />
             <label className="label">
-              <a
-                href="#"
-                className="label-text-alt link link-hover"
-              >
+              <a href="#" className="label-text-alt link link-hover">
                 Forgot password?
               </a>
             </label>
           </div>
           <div className="form-control mt-3 space-y-4">
-            <button className="btn bg-[#FF204E] border-none font-bold text-white">
+            <button className="btn bg-blue-500 hover:bg-blue-500 border-none font-bold text-white">
               Login
             </button>
-            <p className="text-bold text-center">
+            <p className="text-bold text-black text-center">
               Don't have an account?
               <Link
                 to="/register"
-                className="text-[#FF204E] cursor-pointer hover:underline"
+                className="text-blue-500 cursor-pointer hover:underline"
               >
                 Register here
               </Link>
             </p>
           </div>
-          <div className="divider">OR</div>
-          <button
-            onClick={handleGoogle}
-            className="btn border-none bg-[#FF204E] font-bold text-white md:mb-0 mb-4"
-          >
-            <FaGoogle />
-            Google
-          </button>
         </form>
       </div>
-    </div>
   );
 };
 

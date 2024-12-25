@@ -7,19 +7,22 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../Provider/AuthProvider";
 
 const Card = ({ blog }) => {
-  const {user} = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const { _id, title, imageUrl, longDescription, userName } = blog || {};
-  const wishList = {blog_id: _id, title, imageUrl, userEmail: user?.email, authorName: userName};
-  console.log(wishList);
+  const wishList = {
+    blog_id: _id,
+    title,
+    imageUrl,
+    userEmail: user?.email,
+    authorName: userName,
+  };
   const handleWishList = async () => {
     try {
-      console.log(wishList);
       await axios.post(`${import.meta.env.VITE_API_CALL}wishList`, wishList);
-        Swal.fire({
-          title: "WishList added successfully",
-          icon: "success",
-        });
-      
+      Swal.fire({
+        title: "WishList added successfully",
+        icon: "success",
+      });
     } catch (error) {
       console.error("Error adding to wishlist:", error);
       Swal.fire({
@@ -31,7 +34,7 @@ const Card = ({ blog }) => {
   };
 
   return (
-    <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow grow flex flex-col">
+    <div className="max-w-sm hover:border-blue-400 hover:border-b-4 rounded-lg shadow-lg hover:shadow-xl hover:shadow-blue-200 transition-transform duration-300 transform hover:-translate-y-2 flex flex-col">
       <div>
         <a href="#">
           <img
