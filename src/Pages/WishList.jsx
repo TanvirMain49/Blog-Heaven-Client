@@ -1,12 +1,13 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import DataTable, { createTheme } from "react-data-table-component";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const WishList = () => {
+  const {user} = useContext(AuthContext);
   const [wish, setWish] = useState([]);
-  const [loading, setLoading] = useState(true); // Track loading state
-  const [error, setError] = useState(null); // Track errors
 
   useEffect(() => {
     fetchWishList();
@@ -15,20 +16,25 @@ const WishList = () => {
   const fetchWishList = async () => {
     try {
       const { data } = await axios.get(
-        `${import.meta.env.VITE_API_CALL}wishList`
+        `${import.meta.env.VITE_API_CALL}wishList/${user?.email}`
       );
       setWish(data);
     } catch (err) {
       setError("Failed to fetch data");
       console.error(err);
-    } finally {
-      setLoading(false); // Set loading to false once data is fetched or error occurs
     }
   };
 
-  const handleDelete = (id) =>{
-    console.log(id);
-  }
+  const handleDelete = async (id) => {
+      console.log(id);
+      await axios.delete(`${import.meta.env.VITE_API_CALL}wishList/${id}`);
+      setWish(wish.filter((data) => data._id !== id));
+      Swal.fire({
+        title: "Deleted successfully",
+        icon: "success",
+      });
+    
+  };
 
   // console.log(wish);
   // custom theme for table
@@ -40,7 +46,7 @@ const WishList = () => {
         fontSize: "16px",
         fontWeight: "bold",
         borderBottom: "2px solid #e0e0e0",
-        textAlign: "center", 
+        textAlign: "center",
         justifyContent: "center",
       },
     },
@@ -54,9 +60,8 @@ const WishList = () => {
       style: {
         justifyContent: "center",
         color: "#333333",
-        padding: '6px',
+        padding: "16px",
         fontSize: "16px",
-        
       },
     },
   };
@@ -74,8 +79,16 @@ const WishList = () => {
     {
       name: "Action",
       cell: (row) => (
-        <button onClick={()=>handleDelete(row.blog_id)} className="btn bg-red-500 text-white">Remove</button>
+        <button
+          onClick={() => handleDelete(row._id)}
+          className="btn bg-red-500 text-white"
+        >
+          Remove
+        </button>
       ),
+      ignoreRowClick: true, // Prevent row click event from triggering on button click
+      allowOverflow: true,
+      button: true,
     },
   ];
 
