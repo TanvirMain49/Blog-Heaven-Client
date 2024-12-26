@@ -19,7 +19,6 @@ const UseAxios = () => {
         return response;
       },
       (error) => {
-        console.log(error);
         if (error.response?.status === 401 || error.response?.status === 403) {
           signOutUser()
             .then(() => {
@@ -37,7 +36,6 @@ const UseAxios = () => {
               navigate("/login");
             })
             .catch((error) => {
-              console.log(error.message);
             });
         }
         return Promise.reject(error);

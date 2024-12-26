@@ -34,7 +34,6 @@ const UpdateBLog = () => {
 
     try {
       const { data } = await axios.put(`${import.meta.env.VITE_API_CALL}update-blogs/${Blog._id}`, updatedBlog);
-      console.log("Blog updated successfully:", data);
 
       // Show success alert
       Swal.fire({

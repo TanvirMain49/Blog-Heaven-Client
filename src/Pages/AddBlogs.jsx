@@ -31,13 +31,11 @@ const AddBlogs = () => {
       longDescription,
     };
 
-    console.log(blogPost);
 
     const { data } = await axios.post(
       `${import.meta.env.VITE_API_CALL}blogs`,
       blogPost
     );
-    console.log("Blog created successfully:", data);
     Swal.fire({
       title: "Blog added successfully",
       icon: "success",

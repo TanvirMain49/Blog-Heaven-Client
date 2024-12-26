@@ -40,7 +40,6 @@ const LogIn = () => {
     signInWithGoogle()
       .then((res) => {
         setUser(res.user);
-        console.log(res.user);
         Swal.fire({
           title: `Welcome Back`,
           icon: "success",

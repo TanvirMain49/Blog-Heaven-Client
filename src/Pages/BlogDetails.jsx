@@ -41,7 +41,6 @@ const BlogDetails = () => {
       `${import.meta.env.VITE_API_CALL}blog-Comment`,
       blogCommentDetails
     );
-    console.log(data);
     if (data.acknowledged) {
       const newComment = {
         _id: data.insertedId,

@@ -28,7 +28,6 @@ const Register = () => {
       });
       return;
     }
-    console.log(user);
     createUser(email, password)
       .then((res) => {
         setUser(res.user);
@@ -46,7 +45,6 @@ const Register = () => {
               title: "Oops...",
               text: `${error.message}`,
             });
-            console.log(error);
           });
       })
       .catch((error) => {
@@ -55,7 +53,6 @@ const Register = () => {
           title: "Oops...",
           text: `${error.message}`,
         });
-        console.log(error);
       });
   };
   return (

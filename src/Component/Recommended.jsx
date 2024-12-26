@@ -18,7 +18,6 @@ const Recommended = () => {
     setBlogs(data);
     return blogs;
   };
-  console.log(blogs);
   return (
     <div className="my-16">
       <div className="text-center md:my-8 my-4">

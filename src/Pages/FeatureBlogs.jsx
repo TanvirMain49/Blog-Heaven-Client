@@ -27,7 +27,6 @@ const FeatureBlogs = () => {
       console.error(err);
     }
   };
-  console.log(feature);
 
 
   // custom theme for table
