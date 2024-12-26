@@ -103,7 +103,7 @@ const WishList = () => {
     <div className="py-10 w-10/12 mx-auto">
       <div className="text-center mb-8 space-y-3">
         <h1 className="text-2xl font-bold ">Your Personalized Wish List</h1>
-        <p className="text-sm italic px-64">
+        <p className="text-sm italic md:px-64 px-2">
           Description: Keep track of your favorite items in one convenient
           place. Add, manage, and revisit your desired products anytime to make
           your shopping experience seamless and tailored to your needs.

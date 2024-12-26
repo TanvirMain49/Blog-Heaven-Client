@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
-import { useLoaderData, useNavigate } from "react-router-dom";
+import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { FaArrowAltCircleLeft } from "react-icons/fa";
 
 const UpdateBLog = () => {
   const { user } = useContext(AuthContext);
@@ -175,6 +176,12 @@ const UpdateBLog = () => {
             </button>
           </div>
         </form>
+      </div>
+      <div className="flex items-center justify-center my-8">
+        <Link to="/" className="btn bg-blue-500 text-white mb-4">
+          <FaArrowAltCircleLeft></FaArrowAltCircleLeft>
+          Back to Home
+        </Link>
       </div>
     </div>
   );

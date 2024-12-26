@@ -72,50 +72,50 @@ const BlogDetails = () => {
 
   return (
     <div>
-      <div className="w-8/12 mx-auto bg-white border border-gray-200 rounded-lg shadow p-6">
-        <div className="flex justify-between items-center gap-2">
+      <div className="md:w-8/12 w-11/12 mx-auto bg-white border border-gray-200 rounded-lg shadow md:p-6 p-3">
+        <div className="flex justify-between items-center md:gap-2 gap-5">
           <div className="flex items-center gap-2">
             <img
               src={blog.userPhoto}
               alt=""
-              className="rounded-full w-20 h-20 border-2 border-blue-500 p-1"
+              className="rounded-full md:w-20 md:h-20 w-14 h-14 border-2 border-blue-500 p-1"
             />
             <div>
-              <h1 className="text-xl text-blue-600 font-bold">
+              <h1 className="md:text-xl text-lg text-blue-600 font-bold">
                 {blog.userName}
               </h1>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm mr-6 md:mr-0 text-gray-600">
                 {blog.userEmail}
               </p>
             </div>
           </div>
           {blog.userEmail === user?.email && (
-            <div className="flex gap-3 items-center">
+            <div className="flex items-center md:ml-0 ml-9">
               <Link to={`/update-Blogs/${blog._id}`} className="btn">
-                <MdEdit className="text-2xl" />
+                <MdEdit className="md:text-2xl" />
               </Link>
             </div>
           )}
         </div>
-        <h2 className="text-3xl font-bold text-gray-900 mb-4">{blog.title}</h2>
+        <h2 className="md:text-3xl text-xl font-bold text-gray-900 mb-4">{blog.title}</h2>
         <img
           src={blog.imageUrl}
           alt={blog.title}
           className="w-full h-auto rounded-lg object-cover"
         />
         <div className="my-4">
-          <h5 className="text-2xl font-bold">Description: </h5>
-          <p className="py-2">{blog.longDescription}</p>
+          <h5 className="md:text-2xl text-lg font-bold">Description: </h5>
+          <p className="py-2 md:text-base text-sm">{blog.longDescription}</p>
         </div>
         <form onSubmit={handleComment} className="flex items-center gap-2">
           <img
             src={user?.photoURL}
             alt=""
-            className="w-16 h-16 rounded-full border-2 p-1"
+            className="md:w-16 md:h-16 w-12 h-12 rounded-full border-2 p-1"
           />
           <textarea
             type="text"
-            className="border-2 text-left pl-4 pt-3 w-full rounded-2xl"
+            className="border-2 text-left md:pl-4 pl-3 md:pt-3 md:placeholder:pt-0 placeholder:pt-3 w-full md:rounded-2xl rounded-lg"
             placeholder="Add a comment"
             name="commentBox"
           />
@@ -128,7 +128,7 @@ const BlogDetails = () => {
         <div className="my-8 space-y-4">
           <div class="mb-4 flex items-center gap-2">
             <FaCommentDots />
-            <h2 class="text-lg font-bold flex items-center">
+            <h2 class="md:text-lg text-base font-bold flex items-center">
               Comments ({comments.length})
             </h2>
           </div>

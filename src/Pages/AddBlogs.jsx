@@ -55,8 +55,8 @@ const AddBlogs = () => {
     <div className="max-w-4xl mx-auto py-10">
       {/* Section Title and Description */}
       <div className="text-center mb-8">
-        <h1 className="text-4xl font-bold mb-2">Add a New Blog</h1>
-        <p className="text-gray-600">
+        <h1 className="md:text-4xl text-3xl font-bold mb-2">Add a New Blog</h1>
+        <p className="text-gray-600 text-sm md:text-base">
           Fill in the details below to create a new blog post. Make sure to
           provide accurate and descriptive information.
         </p>

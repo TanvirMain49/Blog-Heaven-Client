@@ -48,8 +48,8 @@ const Card = ({ blog }) => {
   };
 
   return (
-    <div className="max-w-sm hover:border-blue-400 hover:border-b-4 rounded-lg shadow-b-lg hover:shadow-xl hover:shadow-blue-200 transition-transform duration-300 transform hover:-translate-y-2 flex flex-col">
-      <div className="flex items-center gap-2 mb-3 ml-3">
+    <div className="max-w-sm md:hover:border-blue-400 md:shadow-none md:border-t-0 border-t-1 border shadow-lg hover:border-b-4 rounded-lg shadow-b-lg hover:shadow-xl hover:shadow-blue-200 transition-transform duration-300 transform hover:-translate-y-2 flex flex-col">
+      <div className="flex items-center gap-2 mb-3 ml-3 mt-3">
         <img src={userPhoto} alt="" className="w-10 h-10 rounded-full" />
         <div className="mb-3">
           <h1 className="text-base font-semibold">{userName}</h1>

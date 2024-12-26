@@ -62,7 +62,7 @@ const LogIn = () => {
       });
   };
   return (
-    <div className="card max-w-lg border  mx-auto text-black border-blue-500">
+    <div className="card max-w-lg border mx-4 md:mx-auto text-black border-blue-500">
       <form onSubmit={handleLogIn} className="card-body dark:text-white">
         <div className="flex justify-center items-center"></div>
         <h1 className="text-2xl font-bold text-center text-black">

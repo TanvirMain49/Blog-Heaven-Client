@@ -9,11 +9,11 @@ const Newsletter = () => {
           src="https://images.unsplash.com/photo-1455849318743-b2233052fcff?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8YmxvZyUyMHF1YXRlfGVufDB8fDB8fHww"
           className="max-w-sm rounded-lg shadow-2xl"
         />
-        <div className="w-10/12 mx-auto mt-20 py-10 text-center">
-          <h2 className="text-3xl font-bold text-gray-800">
+        <div className="w-10/12 mx-auto md:mt-20 py-10 text-center">
+          <h2 className="md:text-3xl text-2xl font-bold text-gray-800">
             Stay Updated with Our Latest News!
           </h2>
-          <p className="mt-2 text-lg text-gray-600">
+          <p className="mt-2 md:text-lg text-base text-gray-600">
             Join our newsletter to receive the latest updates, exclusive offers,
             and insightful content directly to your inbox. Stay in the loop!
           </p>

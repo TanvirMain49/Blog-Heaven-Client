@@ -21,14 +21,14 @@ const Recommended = () => {
   console.log(blogs);
   return (
     <div className="my-16">
-      <div className="text-center my-8">
-        <h2 className="text-4xl font-bold text-gray-800">Featured Posts</h2>
-        <p className="text-gray-600 italic mt-2">
+      <div className="text-center md:my-8 my-4">
+        <h2 className="md:text-4xl text-3xl font-bold text-gray-800">Featured Posts</h2>
+        <p className="text-gray-600 italic mt-2 md:px-0 px-2">
           Discover what’s popular and making waves in the blogging world right
           now. Stay ahead with our top picks!
         </p>
       </div>
-      <div className="grid grid-cols-4 gap-3 w-10/12 mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-3 w-10/12 mx-auto">
         {blogs.map((blog) => (
           <TrendingCard key={blog._id} blog={blog}></TrendingCard>
         ))}

@@ -51,9 +51,9 @@ const Navbar = () => {
             <img
               src={logo}
               alt=""
-              className="w-16 h-16"
+              className="md:w-16 w-10 md:h-16 h-10"
             />
-            <h1 className="text-blue-600 font-bold">Blog Haven</h1>
+            <h1 className="text-blue-600 font-bold md:text-lg text-base">Blog Haven</h1>
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -72,7 +72,7 @@ const Navbar = () => {
               <img
                 src={user?.photoURL}
                 alt={user?.displayName}
-                className="user-tooltip md:w-16 md:h-16 w-14 h-14 rounded-full border-2 border-green-500 p-1"
+                className="user-tooltip md:w-16 md:h-16 w-12 h-12 rounded-full border-2 border-green-500 p-1"
               />
               <Tooltip
                 anchorSelect=".user-tooltip"
@@ -82,7 +82,7 @@ const Navbar = () => {
             </div>
             <button
               onClick={handleSingOut}
-              className="btn bg-blue-500 text-white border-none whitespace-nowrap"
+              className="btn bg-blue-500 text-white border-none whitespace-nowrap md:ml-0 ml-3"
             >
               Log out
             </button>

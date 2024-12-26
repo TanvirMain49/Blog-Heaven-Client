@@ -84,8 +84,8 @@ const FeatureBlogs = () => {
   return (
     <div className="py-10 w-10/12 mx-auto">
       <div className="text-center mb-6 space-y-3">
-        <h1 className="text-4xl font-bold ">Top 10 Feature List</h1>
-        <p className="text-base italic px-48">
+        <h1 className="md:text-4xl text-3xl font-bold ">Top 10 Feature List</h1>
+        <p className="md:text-base text-sm italic md:px-48 px-1">
           Discover the top 10 standout features of Feature that make it a
           trusted name in healthcare. From innovative treatments to cutting-edge
           technology, explore how Feature is revolutionizing wellness and care.

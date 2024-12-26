@@ -33,8 +33,8 @@ const AllBlogs = () => {
 
   return (
     <div>
-      <div className="flex justify-center items-center gap-4 w-10/12 mx-auto pb-8">
-      <Link to='/' className="btn bg-blue-500 text-white">
+      <div className="flex md:flex-row flex-col justify-center items-center gap-4 w-10/12 mx-auto pb-8">
+      <Link to='/' className="btn bg-blue-500 text-white lg:block hidden">
         <FaArrowAltCircleLeft></FaArrowAltCircleLeft>
         Back to Home
       </Link>
@@ -72,12 +72,13 @@ const AllBlogs = () => {
         </div>
         <div>
         <button onClick={handleReset} className="btn rounded-r-lg bg-blue-500 text-white">
+        Reset
         <TfiReload className="font-bold" />
         </button>
       </div>
       </div>
       {loader && <Loader></Loader>}
-      <div className="grid grid-cols-3 gap-3 w-10/12 mx-auto">
+      <div className="grid grid-col-1 md:grid-cols-3 gap-3 w-10/12 mx-auto">
         {blogs.map((blog) => (
           <Card key={blog._id} blog={blog}></Card>
         ))}

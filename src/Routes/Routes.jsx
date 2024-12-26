@@ -58,7 +58,7 @@ const router = createBrowserRouter([
         {
             path:'/update-Blogs/:id',
             element:<UpdateBLog></UpdateBLog>,
-            loader: ({params}) => fetch(`http://localhost:4000/all-blogs/${params.id}`)
+            loader: ({params}) => fetch(`${import.meta.env.VITE_API_CALL}all-blogs/${params.id}`)
         },
       ]
     },
