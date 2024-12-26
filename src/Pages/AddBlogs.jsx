@@ -2,7 +2,8 @@ import React, { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import axios from "axios";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { FaArrowAltCircleLeft } from "react-icons/fa";
 
 const AddBlogs = () => {
   const { user } = useContext(AuthContext);
@@ -32,11 +33,20 @@ const AddBlogs = () => {
 
     console.log(blogPost);
 
-    const { data } = await axios.post(`${import.meta.env.VITE_API_CALL}blogs`, blogPost);
+    const { data } = await axios.post(
+      `${import.meta.env.VITE_API_CALL}blogs`,
+      blogPost
+    );
     console.log("Blog created successfully:", data);
     Swal.fire({
       title: "Blog added successfully",
       icon: "success",
+      confirmButtonText: "Ok",
+      customClass: {
+        confirmButton:
+          "bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded",
+      },
+      buttonsStyling: false,
     });
     navigation("/allBlogs");
   };
@@ -162,6 +172,12 @@ const AddBlogs = () => {
             </button>
           </div>
         </form>
+      </div>
+      <div className="flex items-center justify-center my-8">
+        <Link to="/" className="btn bg-blue-500 text-white mb-4">
+          <FaArrowAltCircleLeft></FaArrowAltCircleLeft>
+          Back to Home
+        </Link>
       </div>
     </div>
   );

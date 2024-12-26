@@ -8,19 +8,16 @@ const BlogSlide = ({ imageSrc, title, description }) => {
     animate={{ opacity: 1, scale: 1,}}
     transition={{ ease: "easeOut", duration: 0.8 }} className="bg-gray-50">
       <motion.div 
-      //  initial={{ opacity: 0, scale: 0 }}
-      //  animate={{ opacity: 1, scale: 1,}}
-      //  transition={{ ease: "easeOut", duration: 1 }} 
-       className="text-center absolute top-[0%] left-[45%]">
+       className="text-center absolute top-[0%] left-[40%]">
         <h1>
           <span
            
             className="text-2xl"
           >
-            Grand
+            Blog
           </span>{" "}
           <br />
-          <span className="text-8xl font-bold playfair-font">Blog</span>
+          <span className="text-8xl font-bold playfair-font">Heaven</span>
         </h1>
       </motion.div>
       <div className="mt-20">

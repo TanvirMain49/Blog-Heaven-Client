@@ -29,7 +29,7 @@ const Newsletter = () => {
                   confirmButton:
                     "bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded",
                 },
-                buttonsStyling: false, // Disable default SweetAlert2 button styles
+                buttonsStyling: false,
               });
               e.target.reset();
             }}

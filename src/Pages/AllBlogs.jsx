@@ -1,26 +1,53 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Card from "../Component/Card";
 import axios from "axios";
+import { FaArrowAltCircleLeft } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { TfiReload } from "react-icons/tfi";
+import { AuthContext } from "../Provider/AuthProvider";
+import Loader from "../Component/Loader";
 
 const AllBlogs = () => {
+  const {setLoader, loader} = useContext(AuthContext);
   const [blogs, setBlogs] = useState([]);
-  useEffect(()=>{
-    fetchAllBlogs();
-  }, [])
+  const [filter, setFilter] = useState('');
+  const [search, setSearch] = useState('');
 
-  const fetchAllBlogs = async()=>{
-    const {data} = await axios.get(`${import.meta.env.VITE_API_CALL}all-blogs`);
-    setBlogs(data);
-    return blogs
+  useEffect(() => {
+    const fetchAllBlogs = async () => {
+      setLoader(true);
+      const { data } = await axios.get(
+        `${import.meta.env.VITE_API_CALL}all-blogs?filter=${filter}&search=${search}`
+      );
+      setLoader(false)
+      setBlogs(data);
+      return blogs;
+    };
+    fetchAllBlogs();
+  }, [filter, search]);
+
+  const handleReset = () =>{
+    setFilter('');
+    setSearch('');
   }
-  console.log(blogs);
 
   return (
     <div>
       <div className="flex justify-center items-center gap-4 w-10/12 mx-auto pb-8">
+      <Link to='/' className="btn bg-blue-500 text-white">
+        <FaArrowAltCircleLeft></FaArrowAltCircleLeft>
+        Back to Home
+      </Link>
         <div>
-          <select name="category" className="py-3 px-4 border rounded-lg" required>
-            <option value="" disabled selected>
+          <select
+            onChange={(e) => {
+              setFilter(e.target.value);
+            }}
+            name="category"
+            className="py-3 px-4 border rounded-lg bg-blue-500 text-white"
+            required
+          >
+            <option  value="" disabled selected>
               Select a category
             </option>
             <option value="Technology">Technology</option>
@@ -32,16 +59,30 @@ const AllBlogs = () => {
         </div>
 
         <div className="flex">
-          <input placeholder="Search" type="text" className="py-2 px-6 rounded-l-lg border border-black"/>
-          <button className="btn rounded-r-lg bg-blue-500 text-white">Search</button>
+          <input
+            placeholder="Search"
+            type="text"
+            onChange={(e)=>{setSearch(e.target.value)}}
+            value={search}
+            className="py-2 px-6 rounded-l-lg border border-black"
+          />
+          <button  className="px-4 py-2 rounded-r-lg bg-blue-500 text-white">
+            Search
+          </button>
         </div>
+        <div>
+        <button onClick={handleReset} className="btn rounded-r-lg bg-blue-500 text-white">
+        <TfiReload className="font-bold" />
+        </button>
+      </div>
+      </div>
+      {loader && <Loader></Loader>}
+      <div className="grid grid-cols-3 gap-3 w-10/12 mx-auto">
+        {blogs.map((blog) => (
+          <Card key={blog._id} blog={blog}></Card>
+        ))}
       </div>
 
-      <div className="grid grid-cols-3 gap-3 w-10/12 mx-auto">
-        {
-          blogs.map(blog=><Card key={blog._id} blog={blog}></Card>)
-        }
-      </div>
     </div>
   );
 };

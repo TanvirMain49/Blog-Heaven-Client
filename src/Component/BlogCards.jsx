@@ -11,7 +11,7 @@ const BlogCards = () => {
   }, []);
 
   const fetchAllBlogs = async () => {
-    const { data } = await axios.get(`${import.meta.env.VITE_API_CALL}all-blogs`);
+    const { data } = await axios.get(`${import.meta.env.VITE_API_CALL}all-blogs-home`);
     setBlogs(data);
   };
   return (

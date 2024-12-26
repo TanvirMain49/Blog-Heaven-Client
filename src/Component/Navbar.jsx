@@ -1,12 +1,23 @@
 import { useContext } from "react";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import "react-tooltip/dist/react-tooltip.css";
 import { Tooltip } from "react-tooltip";
+import logo from '../assets/logopng.png'
+import Swal from "sweetalert2";
 const Navbar = () => {
   const { user, signOutUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const handleSingOut = () =>{
+    signOutUser();
+    Swal.fire({
+      title: "log out successfully",
+      icon: "success",
+    });
+    navigate("/login");
+  }
   return (
-    <div className="navbar bg-base-100 mb-7">
+    <div className="navbar bg-while/70 backdrop-blur-lg shadow-lg mb-7 mt-4 border-b-4 border-blue-400 rounded-2xl">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -29,33 +40,29 @@ const Navbar = () => {
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
           >
-            <li>
-              <a>Item 1</a>
-            </li>
-            <li>
-              <a>Parent</a>
-            </li>
-            <li>
-              <a>Item 3</a>
-            </li>
+          <NavLink to="/">Home</NavLink>
+          <NavLink to="/allBlogs">All Blogs</NavLink>
+          {user && <NavLink to="/addBlogs">Add Blogs</NavLink>}
+          <NavLink to="/featured-blogs">Top Feature</NavLink>
+          {user && <NavLink to="/my-wishlist">Wish list</NavLink>}
           </ul>
         </div>
-        <Link className="flex items-center text-xl">
+        <Link to='/' className="flex items-center text-xl">
             <img
-              src="https://img.freepik.com/premium-vector/camera-vector-illustration-icon-photo-sign-graphic-photography-design-flash-film-digital_1013341-33000.jpg"
+              src={logo}
               alt=""
               className="w-16 h-16"
             />
-            <h1 className="text-black font-bold">Grand Blog</h1>
+            <h1 className="text-blue-600 font-bold">Blog Haven</h1>
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 space-x-3 text-base">
-          <Link to="/">Home</Link>
-          <Link to="/allBlogs">All Blogs</Link>
-          {user && <Link to="/addBlogs">Add Blogs</Link>}
-          <Link to="/featured-blogs">Top Feature</Link>
-          {user && <Link to="/my-wishlist">Wish list</Link>}
+          <NavLink to="/">Home</NavLink>
+          <NavLink to="/allBlogs">All Blogs</NavLink>
+          {user && <NavLink to="/addBlogs">Add Blogs</NavLink>}
+          <NavLink to="/featured-blogs">Top Feature</NavLink>
+          {user && <NavLink to="/my-wishlist">Wish list</NavLink>}
         </ul>
       </div>
       <div className="navbar-end items-center md:gap-2 md:ml-0 ">
@@ -74,7 +81,7 @@ const Navbar = () => {
               />
             </div>
             <button
-              onClick={signOutUser}
+              onClick={handleSingOut}
               className="btn bg-blue-500 text-white border-none whitespace-nowrap"
             >
               Log out
@@ -88,12 +95,12 @@ const Navbar = () => {
             >
               Log in
             </Link>
-            <NavLink
+            <Link
               to="/register"
               className="btn bg-blue-500 text-white border-none pt-4 md:block hidden"
             >
               Register
-            </NavLink>
+            </Link>
           </>
         )}
       </div>

@@ -8,7 +8,15 @@ import { AuthContext } from "../Provider/AuthProvider";
 
 const Card = ({ blog }) => {
   const { user } = useContext(AuthContext);
-  const { _id, title, imageUrl, longDescription, userName } = blog || {};
+  const {
+    _id,
+    title,
+    imageUrl,
+    longDescription,
+    userName,
+    userPhoto,
+    category,
+  } = blog || {};
   const wishList = {
     blog_id: _id,
     title,
@@ -22,6 +30,12 @@ const Card = ({ blog }) => {
       Swal.fire({
         title: "WishList added successfully",
         icon: "success",
+        confirmButtonText: "Ok",
+        customClass: {
+          confirmButton:
+            "bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded",
+        },
+        buttonsStyling: false,
       });
     } catch (error) {
       console.error("Error adding to wishlist:", error);
@@ -34,11 +48,18 @@ const Card = ({ blog }) => {
   };
 
   return (
-    <div className="max-w-sm hover:border-blue-400 hover:border-b-4 rounded-lg shadow-lg hover:shadow-xl hover:shadow-blue-200 transition-transform duration-300 transform hover:-translate-y-2 flex flex-col">
+    <div className="max-w-sm hover:border-blue-400 hover:border-b-4 rounded-lg shadow-b-lg hover:shadow-xl hover:shadow-blue-200 transition-transform duration-300 transform hover:-translate-y-2 flex flex-col">
+      <div className="flex items-center gap-2 mb-3 ml-3">
+        <img src={userPhoto} alt="" className="w-10 h-10 rounded-full" />
+        <div className="mb-3">
+          <h1 className="text-base font-semibold">{userName}</h1>
+          <p className="text-xs">{category}</p>
+        </div>
+      </div>
       <div>
         <a href="#">
           <img
-            className="rounded-t-lg h-72 w-full object-cover"
+            className=" h-72 w-full object-cover"
             src={imageUrl}
             alt={title}
           />

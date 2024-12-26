@@ -1,24 +1,27 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
-import DataTable  from "react-data-table-component";
+import DataTable from "react-data-table-component";
 import Swal from "sweetalert2";
 import { AuthContext } from "../Provider/AuthProvider";
 import UseAxios from "../hook/AxiosSecure";
+import { Link } from "react-router-dom";
+import { FaArrowAltCircleLeft } from "react-icons/fa";
+import Loader from "../Component/Loader";
 
 const WishList = () => {
-  const axiosInstance = UseAxios()
-  const {user} = useContext(AuthContext);
+  const axiosInstance = UseAxios();
+  const { user, loader, setLoader } = useContext(AuthContext);
   const [wish, setWish] = useState([]);
 
   useEffect(() => {
+    setLoader(true);
     fetchWishList();
+    setLoader(false)
   }, []);
 
   const fetchWishList = async () => {
     try {
-      const { data } = await axiosInstance.get(
-        `wishList/${user?.email}`
-      );
+      const { data } = await axiosInstance.get(`wishList/${user?.email}`);
       setWish(data);
     } catch (err) {
       console.error(err);
@@ -26,14 +29,18 @@ const WishList = () => {
   };
 
   const handleDelete = async (id) => {
-      console.log(id);
-      await axios.delete(`${import.meta.env.VITE_API_CALL}wishList/${id}`);
-      setWish(wish.filter((data) => data._id !== id));
-      Swal.fire({
-        title: "Deleted successfully",
-        icon: "success",
-      });
-    
+    await axios.delete(`${import.meta.env.VITE_API_CALL}wishList/${id}`);
+    setWish(wish.filter((data) => data._id !== id));
+    Swal.fire({
+      title: "Deleted successfully",
+      icon: "success",
+      confirmButtonText: "Ok",
+      customClass: {
+        confirmButton:
+          "bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded",
+      },
+      buttonsStyling: false,
+    });
   };
 
   // console.log(wish);
@@ -94,8 +101,22 @@ const WishList = () => {
 
   return (
     <div className="py-10 w-10/12 mx-auto">
-      <h1 className="text-2xl font-bold mb-6">Blog List</h1>
+      <div className="text-center mb-8 space-y-3">
+        <h1 className="text-2xl font-bold ">Your Personalized Wish List</h1>
+        <p className="text-sm italic px-64">
+          Description: Keep track of your favorite items in one convenient
+          place. Add, manage, and revisit your desired products anytime to make
+          your shopping experience seamless and tailored to your needs.
+        </p>
+      </div>
+      {loader && <Loader></Loader>}
       <DataTable columns={columns} data={wish} customStyles={customStyles} />
+      <div className="flex items-center justify-center my-8">
+        <Link to="/" className="btn bg-blue-500 text-white mb-4">
+          <FaArrowAltCircleLeft></FaArrowAltCircleLeft>
+          Back to Home
+        </Link>
+      </div>
     </div>
   );
 };
