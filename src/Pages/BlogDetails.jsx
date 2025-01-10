@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 import CommentSection from "../Component/CommentSection";
 import { FaCommentDots } from "react-icons/fa";
 import { MdEdit } from "react-icons/md";
-import { IoHeartCircleSharp } from "react-icons/io5";
+
 
 const BlogDetails = () => {
   const { user } = useContext(AuthContext);

@@ -68,7 +68,7 @@ const LogIn = () => {
     animationData: login, 
   };
   return (
-    <div className="card max-w-lg border mx-4 md:mx-auto text-black border-blue-500">
+    <div className="card max-w-lg border mx-4 md:mx-auto text-black border-blue-500 mb-20">
       <form onSubmit={handleLogIn} className="card-body dark:text-white">
         <div className="flex justify-center items-center">
           <Lottie  options={defaultOptions} height={200} width={300} > </Lottie>

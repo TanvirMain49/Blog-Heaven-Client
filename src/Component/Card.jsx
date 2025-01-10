@@ -11,6 +11,7 @@ import { axiosInstance } from "../hook/AxiosSecure";
 const Card = ({ blog }) => {
   const { user } = useContext(AuthContext);
   const [wish, setWish] = useState([]);
+  const [comments, setComments] = useState([]);
   const {
     _id,
     title,
@@ -52,7 +53,6 @@ const Card = ({ blog }) => {
     }
   };
 
-
   // wish List
   useEffect(() => {
     fetchWishList();
@@ -69,6 +69,17 @@ const Card = ({ blog }) => {
         icon: "error",
       });
     }
+  };
+
+  useEffect(() => {
+    fetchAllComments();
+  }, []);
+
+  const fetchAllComments = async () => {
+    const { data } = await axios.get(
+      `${import.meta.env.VITE_API_CALL}blog-Comment/${blog._id}`
+    );
+    setComments(data);
   };
 
   return (
@@ -93,7 +104,7 @@ const Card = ({ blog }) => {
             <h5 className="mb-2 text-xl font-bold tracking-tight">{title}</h5>
           </Link>
           <p className="mb-3 font-normal text-gray-700">
-            {longDescription?.substring(0, 120)}
+            {longDescription?.substring(0, 80)}
             <Link
               to={`/all-blogs/${_id}`}
               className="text-blue-500 font-semibold"
@@ -101,46 +112,56 @@ const Card = ({ blog }) => {
               ...see more
             </Link>
           </p>
-          <div className="flex items-center">
-            {wish.length > 0 && (
-              <>
-                {wish.map((item, index) => (
-                  <div key={index} className="flex items-center">
-                    <img
-                      src={item.userPhoto}
-                      alt=""
-                      className="w-5 h-5 rounded-full"
-                    />
-                  </div>
-                ))}
-                <p className="text-sm ml-1 font-semibold">liked your blog</p>
-              </>
-            )}
-          </div>
         </div>
       </div>
 
       {/* Button at the bottom */}
-      <div className="mt-auto px-5 pb-5 flex items-center">
-        <button
-          onClick={handleWishList}
-          className="inline-flex justify-center items-center gap-2 px-3 py-2 text-sm font-medium text-center"
-        >
-          <CiHeart className="text-3xl font-bold" />
-        </button>
-        <button
-          onClick={handleWishList}
-          className="inline-flex justify-center items-center gap-2 px-3 py-2 text-sm font-medium text-center"
-        >
-          <FaRegComment className="text-2xl" />
-        </button>
+      <div className="mt-auto pb-5 flex flex-col">
+        <div className="flex items-center pl-3 pb-4">
+          {wish.length > 0 && (
+            <>
+              {wish.map((item, index) => (
+                <div key={index} className="flex items-center">
+                  <img
+                    src={item.userPhoto}
+                    alt=""
+                    className="w-5 h-5 rounded-full"
+                  />
+                </div>
+              ))}
+              <p className="text-sm ml-1 font-semibold">liked your blog</p>
+            </>
+          )}
+        </div>
+        <div className="flex items-center">
+          <button
+            data-tip="Like"
+            onClick={handleWishList}
+            className="tooltip inline-flex justify-center items-center gap-2 px-3 py-2 text-sm font-medium text-center"
+          >
+            <CiHeart className="text-3xl font-bold" />
+          </button>
+          <Link
+            to={`/all-blogs/${_id}`}
+            data-tip="Comment"
+            className="relative tooltip inline-flex justify-center items-center gap-2 px-3 py-2 text-sm font-medium text-center"
+          >
+            {comments.length > 0 && (
+              <p className="bg-blue-500 text-white absolute px-2 bottom-5 left-7 rounded-full">
+                {comments.length}
+              </p>
+            )}
+            <FaRegComment className="text-2xl" />
+          </Link>
 
-        <Link
-          to={`/all-blogs/${_id}`}
-          className="inline-flex justify-center items-center gap-2 px-3 py-2 text-sm font-medium text-center"
-        >
-          <TbListDetails className="text-2xl" />
-        </Link>
+          <Link
+            data-tip="Details"
+            to={`/all-blogs/${_id}`}
+            className="tooltip inline-flex justify-center items-center gap-2 px-3 py-2 text-sm font-medium text-center"
+          >
+            <TbListDetails className="text-2xl" />
+          </Link>
+        </div>
       </div>
     </div>
   );

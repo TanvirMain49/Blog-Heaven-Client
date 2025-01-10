@@ -64,7 +64,7 @@ const Register = () => {
     animationData: addBlogs,
   };
   return (
-    <div className="card max-w-lg border border-blue-500 md:mx-auto mx-3">
+    <div className="card max-w-lg border border-blue-500 md:mx-auto mx-3 mb-20">
       <Lottie options={defaultOptions} height={200} width={400}></Lottie>
       <form onSubmit={handleRegister} className="card-body">
         <h1 className="text-2xl font-bold pt-3 pb-1 text-center">
