@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../Provider/AuthProvider";
 import { FcGoogle } from "react-icons/fc";
+import login from '../../public/login.json'
+import Lottie from 'react-lottie';
 
 const LogIn = () => {
   const { signInWithGoogle, logIn, setUser } = useContext(AuthContext);
@@ -60,10 +62,17 @@ const LogIn = () => {
         });
       });
   };
+  const defaultOptions = {
+    loop: true, 
+    autoplay: true, 
+    animationData: login, 
+  };
   return (
     <div className="card max-w-lg border mx-4 md:mx-auto text-black border-blue-500">
       <form onSubmit={handleLogIn} className="card-body dark:text-white">
-        <div className="flex justify-center items-center"></div>
+        <div className="flex justify-center items-center">
+          <Lottie  options={defaultOptions} height={200} width={300} > </Lottie>
+        </div>
         <h1 className="text-2xl font-bold text-center text-black">
           Welcome Back!
         </h1>

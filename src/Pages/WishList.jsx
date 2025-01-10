@@ -27,6 +27,7 @@ const WishList = () => {
       console.error(err);
     }
   };
+  console.log(wish);
 
   const handleDelete = async (id) => {
     await axios.delete(`${import.meta.env.VITE_API_CALL}wishList/${id}`);

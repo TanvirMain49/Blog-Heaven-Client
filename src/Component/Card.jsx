@@ -1,13 +1,16 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { TbListDetails } from "react-icons/tb";
 import { CiHeart } from "react-icons/ci";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { AuthContext } from "../Provider/AuthProvider";
+import { FaRegComment } from "react-icons/fa";
+import { axiosInstance } from "../hook/AxiosSecure";
 
 const Card = ({ blog }) => {
   const { user } = useContext(AuthContext);
+  const [wish, setWish] = useState([]);
   const {
     _id,
     title,
@@ -17,11 +20,13 @@ const Card = ({ blog }) => {
     userPhoto,
     category,
   } = blog || {};
+
   const wishList = {
     blog_id: _id,
     title,
     imageUrl,
     userEmail: user?.email,
+    userPhoto: user?.photoURL,
     authorName: userName,
   };
   const handleWishList = async () => {
@@ -47,6 +52,25 @@ const Card = ({ blog }) => {
     }
   };
 
+
+  // wish List
+  useEffect(() => {
+    fetchWishList();
+  }, [wish]);
+
+  const fetchWishList = async () => {
+    try {
+      const { data } = await axiosInstance.get(`wishList-loved/${_id}`);
+      setWish(data);
+    } catch (err) {
+      Swal.fire({
+        title: "Error",
+        text: "Could not fetch wishlist data",
+        icon: "error",
+      });
+    }
+  };
+
   return (
     <div className="max-w-sm md:hover:border-blue-400 md:shadow-none md:border-t-0 border-t-1 border shadow-lg hover:border-b-4 rounded-lg shadow-b-lg hover:shadow-xl hover:shadow-blue-200 transition-transform duration-300 transform hover:-translate-y-2 flex flex-col">
       <div className="flex items-center gap-2 mb-3 ml-3 mt-3">
@@ -59,17 +83,17 @@ const Card = ({ blog }) => {
       <div>
         <a href="#">
           <img
-            className=" h-72 w-full object-cover"
+            className=" h-52 w-full object-cover"
             src={imageUrl}
             alt={title}
           />
         </a>
         <div className="p-5 text-black flex-grow">
           <Link to="/blogDetails">
-            <h5 className="mb-2 text-2xl font-bold tracking-tight">{title}</h5>
+            <h5 className="mb-2 text-xl font-bold tracking-tight">{title}</h5>
           </Link>
           <p className="mb-3 font-normal text-gray-700">
-            {longDescription?.substring(0, 180)}
+            {longDescription?.substring(0, 120)}
             <Link
               to={`/all-blogs/${_id}`}
               className="text-blue-500 font-semibold"
@@ -77,28 +101,69 @@ const Card = ({ blog }) => {
               ...see more
             </Link>
           </p>
+          <div className="flex items-center">
+            {wish.length > 0 && (
+              <>
+                {wish.map((item, index) => (
+                  <div key={index} className="flex items-center">
+                    <img
+                      src={item.userPhoto}
+                      alt=""
+                      className="w-5 h-5 rounded-full"
+                    />
+                  </div>
+                ))}
+                <p className="text-sm ml-1 font-semibold">liked your blog</p>
+              </>
+            )}
+          </div>
         </div>
       </div>
 
       {/* Button at the bottom */}
-      <div className="mt-auto p-5 flex flex-col gap-2">
-        <Link
-          to={`/all-blogs/${_id}`}
-          className="inline-flex justify-center items-center gap-2 px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-        >
-          <TbListDetails className="text-xl" />
-          Details
-        </Link>
+      <div className="mt-auto px-5 pb-5 flex items-center">
         <button
           onClick={handleWishList}
-          className="inline-flex justify-center items-center gap-2 px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          className="inline-flex justify-center items-center gap-2 px-3 py-2 text-sm font-medium text-center"
         >
-          <CiHeart className="text-xl" />
-          Wish List
+          <CiHeart className="text-3xl font-bold" />
         </button>
+        <button
+          onClick={handleWishList}
+          className="inline-flex justify-center items-center gap-2 px-3 py-2 text-sm font-medium text-center"
+        >
+          <FaRegComment className="text-2xl" />
+        </button>
+
+        <Link
+          to={`/all-blogs/${_id}`}
+          className="inline-flex justify-center items-center gap-2 px-3 py-2 text-sm font-medium text-center"
+        >
+          <TbListDetails className="text-2xl" />
+        </Link>
       </div>
     </div>
   );
 };
 
 export default Card;
+
+{
+  /* Button at the bottom */
+}
+// <div className="mt-auto p-5 flex flex-col gap-2">
+//   <Link
+//     to={`/all-blogs/${_id}`}
+//     className="inline-flex justify-center items-center gap-2 px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+//   >
+//     <TbListDetails className="text-xl" />
+//     Details
+//   </Link>
+//   <button
+//     onClick={handleWishList}
+//     className="inline-flex justify-center items-center gap-2 px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+//   >
+//     <CiHeart className="text-xl" />
+//     Wish List
+//   </button>
+// </div>

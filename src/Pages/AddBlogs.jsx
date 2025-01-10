@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 import { Link, useNavigate } from "react-router-dom";
 import { FaArrowAltCircleLeft } from "react-icons/fa";
 
+
 const AddBlogs = () => {
   const { user } = useContext(AuthContext);
   const navigation = useNavigate();
@@ -31,7 +32,6 @@ const AddBlogs = () => {
       longDescription,
     };
 
-
     const { data } = await axios.post(
       `${import.meta.env.VITE_API_CALL}blogs`,
       blogPost
@@ -49,6 +49,8 @@ const AddBlogs = () => {
     navigation("/allBlogs");
   };
 
+
+
   return (
     <div className="max-w-4xl mx-auto py-10">
       {/* Section Title and Description */}
@@ -62,7 +64,7 @@ const AddBlogs = () => {
 
       {/* Form Container */}
       <div className="border border-gray-300 rounded-lg p-6 shadow-lg bg-white">
-        <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-6">
+        <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-6 mt-3">
           {/* User Name */}
           <div>
             <label className="block text-sm font-medium mb-2">User Name</label>

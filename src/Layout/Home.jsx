@@ -4,6 +4,7 @@ import BlogCards from '../Component/BlogCards';
 import Newsletter from '../Component/Newsletter';
 import Recommended from '../Component/Recommended';
 import ReviewSection from '../Component/ReviewSection';
+import AboutUs from '../Component/AboutUs';
 
 const Home = () => {
     return (
@@ -13,6 +14,7 @@ const Home = () => {
             <Newsletter></Newsletter>
             <Recommended></Recommended>
             <ReviewSection></ReviewSection>
+            <AboutUs></AboutUs>
         </div>
     );
 };

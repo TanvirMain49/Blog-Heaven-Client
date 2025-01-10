@@ -2,9 +2,12 @@ import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../Provider/AuthProvider";
+import addBlogs from "../../public/register.json";
+import Lottie from "react-lottie";
 
 const Register = () => {
-  const { createUser, signInWithGoogle, setUser, updatePfp } = useContext(AuthContext);
+  const { createUser, signInWithGoogle, setUser, updatePfp } =
+    useContext(AuthContext);
   const navigation = useNavigate();
   const handleRegister = (e) => {
     e.preventDefault();
@@ -55,13 +58,21 @@ const Register = () => {
         });
       });
   };
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: addBlogs,
+  };
   return (
     <div className="card max-w-lg border border-blue-500 md:mx-auto mx-3">
+      <Lottie options={defaultOptions} height={200} width={400}></Lottie>
       <form onSubmit={handleRegister} className="card-body">
         <h1 className="text-2xl font-bold pt-3 pb-1 text-center">
           Register Here!
         </h1>
-        <h1 className="text-base pb-4 text-center text-black">Join us now for exclusive features and updates!</h1>
+        <h1 className="text-base pb-4 text-center text-black">
+          Join us now for exclusive features and updates!
+        </h1>
         <div className="form-control space-y-3">
           <input
             type="text"
