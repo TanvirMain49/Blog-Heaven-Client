@@ -3,7 +3,7 @@ import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 
 const ReviewSection = () => {
   return (
-    <div className="w-10/12 mx-auto py-16">
+    <div className="w-10/12 mx-auto pb-16">
       <h2 className="md:text-4xl text-2xl font-bold text-center mb-6">
         Popular Celebrity Reviews
       </h2>

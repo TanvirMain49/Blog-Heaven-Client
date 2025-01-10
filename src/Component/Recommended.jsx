@@ -32,7 +32,7 @@ const Recommended = () => {
           <TrendingCard key={blog._id} blog={blog}></TrendingCard>
         ))}
       </div>
-      <div className=" flex justify-center mt-8 items-center">
+      <div className=" flex justify-center mt-12 items-center">
         <Link
           to="/featured-blogs"
           className="btn flex items-center gap-2 text-lg"
