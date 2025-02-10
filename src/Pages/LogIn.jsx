@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../Provider/AuthProvider";
 import { FcGoogle } from "react-icons/fc";
@@ -9,6 +9,9 @@ import Lottie from 'react-lottie';
 const LogIn = () => {
   const { signInWithGoogle, logIn, setUser } = useContext(AuthContext);
   const navigation = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/"
   const handleLogIn = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -27,7 +30,7 @@ const LogIn = () => {
           },
           buttonsStyling: false,
         });
-        navigation("/");
+        navigation(from);
       })
       .catch((error) => {
         Swal.fire({

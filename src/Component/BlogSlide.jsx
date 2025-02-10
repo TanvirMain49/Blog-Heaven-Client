@@ -8,7 +8,7 @@ const BlogSlide = ({ imageSrc, title, description }) => {
     animate={{ opacity: 1, scale: 1,}}
     transition={{ ease: "easeOut", duration: 0.8 }} >
       <motion.div 
-       className="text-center absolute md:top-[0%] top-[0%] left-[40%]">
+       className="text-center absolute md:top-[0%] top-[0%] lg:left-[40%] md:left-[30%] left-[35%]">
         <h1>
           <span
            
@@ -31,7 +31,7 @@ const BlogSlide = ({ imageSrc, title, description }) => {
         <p className="md:text-xl text-base text-blue-500 text-center">Art / LifeStyle</p>
         <h1 className="text-center md:text-5xl text-3xl font-bold pb-4">{title}</h1>
         <div className="border border-gray-400 md:mx-[47%] mx-[20%]"></div>
-        <p className="md:text-xl text-base italic text-center md:px-60 px-3 pt-4">{description}</p>
+        <p className="lg:text-xl text-base italic text-center lg:px-60 md:px-32 px-3 pt-4">{description}</p>
       </div>
     </motion.div>
   );

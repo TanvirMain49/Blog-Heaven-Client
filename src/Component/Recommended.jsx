@@ -27,7 +27,7 @@ const Recommended = () => {
           now. Stay ahead with our top picks!
         </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-3 w-10/12 mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 w-10/12 mx-auto">
         {blogs.map((blog) => (
           <TrendingCard key={blog._id} blog={blog}></TrendingCard>
         ))}
