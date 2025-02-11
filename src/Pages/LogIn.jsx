@@ -76,15 +76,15 @@ const LogIn = () => {
         <div className="flex justify-center items-center">
           <Lottie  options={defaultOptions} height={200} width={300} > </Lottie>
         </div>
-        <h1 className="text-2xl font-bold text-center text-black">
+        <h1 className="text-2xl font-bold text-center text-black dark:text-white">
           Welcome Back!
         </h1>
-        <h1 className="text-base pb-4 text-center text-black">
+        <h1 className="text-base pb-4 text-center text-black dark:text-white">
           Continue with Google or Enter your details
         </h1>
         <button
           onClick={handleGoogle}
-          className="btn bg-gray-100 border border-blue-500 font-bold text-blue-500 md:mb-0 mb-4 hover:bg-gray-100"
+          className="btn bg-gray-100 border border-blue-500 font-bold text-blue-500 md:mb-0 mb-4 hover:bg-gray-100 dark:text-white dark:bg-black dark:border-none"
         >
           <FcGoogle className="text-2xl" />
           Log in with Google
@@ -94,7 +94,7 @@ const LogIn = () => {
             type="email"
             placeholder="email"
             name="email"
-            className="border-y-2 px-3 py-3 my-3 text-black"
+            className="border-y-2 px-3 py-3 my-3 text-black dark:text-white dark:bg-black dark:border-none"
             required
           />
         </div>
@@ -103,7 +103,7 @@ const LogIn = () => {
             type="password"
             placeholder="password"
             name="password"
-            className="border-y-2 px-3 py-3 mb-3 text-black"
+            className="border-y-2 px-3 py-3 mb-3 text-black dark:text-white dark:bg-black dark:border-none"
             required
           />
           <label className="label">
@@ -116,7 +116,7 @@ const LogIn = () => {
           <button className="btn bg-blue-500 hover:bg-blue-500 border-none font-bold text-white">
             Login
           </button>
-          <p className="text-bold text-black text-center">
+          <p className="text-bold text-black text-center dark:text-white">
             Don't have an account?
             <Link
               to="/register"

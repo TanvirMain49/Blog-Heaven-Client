@@ -5,7 +5,6 @@ import Swal from "sweetalert2";
 import { Link, useNavigate } from "react-router-dom";
 import { FaArrowAltCircleLeft } from "react-icons/fa";
 
-
 const AddBlogs = () => {
   const { user } = useContext(AuthContext);
   const navigation = useNavigate();
@@ -49,21 +48,19 @@ const AddBlogs = () => {
     navigation("/allBlogs");
   };
 
-
-
   return (
     <div className="max-w-4xl mx-auto py-10">
       {/* Section Title and Description */}
       <div className="text-center mb-8">
         <h1 className="md:text-4xl text-3xl font-bold mb-2">Add a New Blog</h1>
-        <p className="text-gray-600 text-sm md:text-base">
+        <p className="text-gray-600 text-sm md:text-base dark:text-white">
           Fill in the details below to create a new blog post. Make sure to
           provide accurate and descriptive information.
         </p>
       </div>
 
       {/* Form Container */}
-      <div className="border border-gray-300 rounded-lg p-6 shadow-lg bg-white">
+      <div className="border border-gray-300 rounded-lg p-6 shadow-lg bg-white dark:bg-gray-800 dark:text-white">
         <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-6 mt-3">
           {/* User Name */}
           <div>
@@ -74,7 +71,7 @@ const AddBlogs = () => {
               placeholder="Enter your name"
               defaultValue={user?.displayName}
               readOnly
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded dark:bg-gray-700 dark:border-gray-600 dark:text-white"
               required
             />
           </div>
@@ -88,7 +85,7 @@ const AddBlogs = () => {
               placeholder="Enter your email"
               defaultValue={user?.email}
               readOnly
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded dark:bg-gray-700 dark:border-gray-600 dark:text-white"
               required
             />
           </div>
@@ -100,7 +97,7 @@ const AddBlogs = () => {
               name="userPhoto"
               placeholder="Enter photo URL"
               defaultValue={user?.photoURL}
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded dark:bg-gray-700 dark:border-gray-600 dark:text-white"
               required
             />
           </div>
@@ -112,7 +109,7 @@ const AddBlogs = () => {
               type="text"
               name="title"
               placeholder="Enter blog title"
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded dark:bg-gray-700 dark:border-gray-600 dark:text-white"
               required
             />
           </div>
@@ -124,7 +121,7 @@ const AddBlogs = () => {
               type="text"
               name="imageUrl"
               placeholder="Enter image URL"
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded dark:bg-gray-700 dark:border-gray-600 dark:text-white"
               required
             />
           </div>
@@ -134,7 +131,7 @@ const AddBlogs = () => {
             <label className="block text-sm font-medium mb-2">Category</label>
             <select
               name="category"
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded dark:bg-gray-700 dark:border-gray-600 dark:text-white"
               required
             >
               <option value="" disabled selected>
@@ -156,7 +153,7 @@ const AddBlogs = () => {
             <textarea
               name="longDescription"
               placeholder="Enter detailed blog description"
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded dark:bg-gray-700 dark:border-gray-600 dark:text-white"
               rows="4"
               required
             ></textarea>

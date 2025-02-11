@@ -18,7 +18,7 @@ const TrendingCard = ({ blog }) => {
   };
 
   return (
-    <Link to={`all-blogs/${_id}`} className="max-w-sm hover:border-blue-400 hover:border-b-4 rounded-lg shadow-lg hover:shadow-xl hover:shadow-blue-200 transition-transform duration-300 transform hover:-translate-y-2 flex flex-col">
+    <Link to={`all-blogs/${_id}`} className="max-w-sm hover:border-blue-400 hover:border-b-4 rounded-lg shadow-lg hover:shadow-xl hover:shadow-blue-200 transition-transform duration-300 transform hover:-translate-y-2 flex flex-col hover:dark:shadow-none">
       <div>
         <a href="#">
           <img
@@ -29,7 +29,7 @@ const TrendingCard = ({ blog }) => {
         </a>
         <div className="p-5 text-black flex-grow">
           <div >
-            <h5 className="mb-2 text-2xl font-bold tracking-tight">{title}</h5>
+            <h5 className="mb-2 text-2xl font-bold tracking-tight dark:text-white">{title}</h5>
           </div>
         </div>
       </div>

@@ -21,8 +21,8 @@ const Recommended = () => {
   return (
     <div className="my-16">
       <div className="text-center md:my-8 my-4">
-        <h2 className="md:text-4xl text-3xl font-bold text-gray-800">Featured Posts</h2>
-        <p className="text-gray-600 italic mt-2 md:px-0 px-2">
+        <h2 className="md:text-4xl text-3xl font-bold text-gray-800 dark:text-white">Featured Posts</h2>
+        <p className="text-gray-600 italic mt-2 md:px-0 px-2 dark:text-white">
           Discover what’s popular and making waves in the blogging world right
           now. Stay ahead with our top picks!
         </p>

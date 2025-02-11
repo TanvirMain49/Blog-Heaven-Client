@@ -15,21 +15,21 @@ const AboutUs = () => {
       })
    }
   return (
-    <section class="about-us bg-gray-100 py-10">
+    <section class="about-us bg-gray-100 py-10 dark:bg-black">
       <div class="w-11/12 mx-auto flex flex-col md:flex-row items-center gap-10 px-5">
         <div class="text-section md:w-1/2">
           <h2 class="text-3xl font-bold text-blue-600 mb-4">About Us</h2>
-          <p class="text-lg text-gray-700 mb-4">
+          <p class="text-lg text-gray-700 mb-4 dark:text-white">
             Welcome to <strong>Blog Heaven</strong>, your go-to platform for
             insightful and engaging content on Blogs. We aim to empower readers
             with up-to-date knowledge and inspire meaningful conversations.
           </p>
-          <p class="text-lg text-gray-700 mb-4">
+          <p class="text-lg text-gray-700 mb-4 dark:text-white">
             Founded in 2024, <strong>Blog Heaven</strong> started as a passion
             project to connect like-minded individuals through storytelling and
             knowledge sharing.
           </p>
-          <p class="text-lg text-gray-700 mb-4">
+          <p class="text-lg text-gray-700 mb-4 dark:text-white">
             Join us as we explore topics that matter to you. Together, let's
             learn, grow, and inspire!
           </p>

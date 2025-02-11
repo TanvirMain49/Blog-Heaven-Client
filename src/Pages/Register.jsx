@@ -70,7 +70,7 @@ const Register = () => {
         <h1 className="text-2xl font-bold pt-3 pb-1 text-center">
           Register Here!
         </h1>
-        <h1 className="text-base pb-4 text-center text-black">
+        <h1 className="text-base pb-4 text-center text-black dark:text-white">
           Join us now for exclusive features and updates!
         </h1>
         <div className="form-control space-y-3">
@@ -78,7 +78,7 @@ const Register = () => {
             type="text"
             placeholder="name"
             name="name"
-            className="border-y-2 px-3 py-3 my-2"
+            className="border-y-2 px-3 py-3 my-2  dark:bg-black dark:text-white dark:border-none"
             required
           />
         </div>
@@ -87,7 +87,7 @@ const Register = () => {
             type="text"
             placeholder="photoURL"
             name="photoURL"
-            className="border-y-2 px-3 py-3 my-2"
+            className="border-y-2 px-3 py-3 my-2  dark:bg-black dark:text-white dark:border-none"
             required
           />
         </div>
@@ -96,7 +96,7 @@ const Register = () => {
             type="email"
             placeholder="email"
             name="email"
-            className="border-y-2 px-3 py-3 my-2"
+            className="border-y-2 px-3 py-3 my-2  dark:bg-black dark:text-white dark:border-none"
             required
           />
         </div>
@@ -105,7 +105,7 @@ const Register = () => {
             type="password"
             placeholder="password"
             name="password"
-            className="border-y-2 px-3 py-3 mb-2"
+            className="border-y-2 px-3 py-3 mb-2  dark:bg-black dark:text-white dark:border-none"
             required
           />
         </div>

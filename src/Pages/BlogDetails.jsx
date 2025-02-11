@@ -70,8 +70,8 @@ const BlogDetails = () => {
   };
 
   return (
-    <div>
-      <div className="md:w-8/12 w-11/12 mx-auto bg-white border border-gray-200 rounded-lg shadow md:p-6 p-3">
+    <>
+      <div className="md:w-8/12 w-11/12 mx-auto bg-white dark:bg-neutral-800 border border-gray-200 rounded-lg shadow md:p-6 p-3">
         <div className="flex justify-between items-center md:gap-2 gap-5">
           <div className="flex items-center gap-2">
             <img
@@ -83,7 +83,7 @@ const BlogDetails = () => {
               <h1 className="md:text-xl text-lg text-blue-600 font-bold">
                 {blog.userName}
               </h1>
-              <p className="text-sm mr-6 md:mr-0 text-gray-600">
+              <p className="text-sm mr-6 md:mr-0 text-gray-600 dark:text-white">
                 {blog.userEmail}
               </p>
             </div>
@@ -96,7 +96,7 @@ const BlogDetails = () => {
             </div>
           )}
         </div>
-        <h2 className="md:text-3xl text-xl font-bold text-gray-900 mb-4">{blog.title}</h2>
+        <h2 className="md:text-3xl text-xl font-bold text-gray-900 mb-4 dark:text-white">{blog.title}</h2>
         <img
           src={blog.imageUrl}
           alt={blog.title}
@@ -114,7 +114,7 @@ const BlogDetails = () => {
           />
           <textarea
             type="text"
-            className="border-2 text-left md:pl-4 pl-3 md:pt-3 md:placeholder:pt-0 placeholder:pt-3 w-full md:rounded-2xl rounded-lg"
+            className="border-2 text-left md:pl-4 pl-3 md:pt-3 md:placeholder:pt-0 placeholder:pt-3 w-full md:rounded-2xl rounded-lg dark:bg-black"
             placeholder="Add a comment"
             name="commentBox"
           />
@@ -139,7 +139,7 @@ const BlogDetails = () => {
           ))}
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

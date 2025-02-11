@@ -66,6 +66,7 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end items-center md:gap-2 md:ml-0 ">
+      <input type="checkbox" value="synthwave" className="toggle theme-controller" />
         {user ? (
           <>
             <div>
