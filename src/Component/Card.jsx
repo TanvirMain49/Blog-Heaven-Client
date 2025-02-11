@@ -83,7 +83,7 @@ const Card = ({ blog }) => {
   };
 
   return (
-    <div className="max-w-sm md:hover:border-blue-400 md:shadow-none md:border-t-0 border-t-1 border shadow-lg hover:border-b-4 rounded-lg shadow-b-lg hover:shadow-xl hover:shadow-blue-200 transition-transform duration-300 transform hover:-translate-y-2 flex flex-col">
+    <div className="max-w-sm md:hover:border-blue-400 md:shadow-none md:border-t-0 border-t-1 border shadow-lg hover:border-b-4 rounded-lg shadow-b-lg hover:shadow-xl hover:shadow-blue-200 transition-transform duration-300 transform hover:-translate-y-2 flex flex-col dark:text-white dark:border-black hover:dark:shadow-none">
       <div className="flex items-center gap-2 mb-3 ml-3 mt-3">
         <img src={userPhoto} alt="" className="w-10 h-10 rounded-full" />
         <div className="mb-3">
@@ -101,9 +101,9 @@ const Card = ({ blog }) => {
         </a>
         <div className="p-5 text-black flex-grow">
           <Link to="/blogDetails">
-            <h5 className="mb-2 text-xl font-bold tracking-tight">{title}</h5>
+            <h5 className="mb-2 text-xl font-bold tracking-tight dark:text-white">{title}</h5>
           </Link>
-          <p className="mb-3 font-normal text-gray-700">
+          <p className="mb-3 font-normal text-gray-700 dark:text-gray-100">
             {longDescription?.substring(0, 80)}
             <Link
               to={`/all-blogs/${_id}`}

@@ -17,7 +17,7 @@ const Navbar = () => {
     navigate("/login");
   }
   return (
-    <div className="navbar bg-while/70 backdrop-blur-lg shadow-lg mb-7 mt-4 border-b-4 border-blue-400 rounded-2xl">
+    <div className="navbar bg-while/70 backdrop-blur-lg shadow-lg mb-7 pt-4 border-b-4 border-blue-400 rounded-2x">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
