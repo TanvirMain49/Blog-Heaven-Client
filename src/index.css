@@ -3,6 +3,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+*{
+  @apply transition-colors duration-200
+}
 
 body{
   overflow-y: scroll;

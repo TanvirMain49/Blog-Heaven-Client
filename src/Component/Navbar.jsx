@@ -6,8 +6,14 @@ import { Tooltip } from "react-tooltip";
 import logo from '../assets/logopng.png'
 import Swal from "sweetalert2";
 const Navbar = () => {
-  const { user, signOutUser } = useContext(AuthContext);
+  const { user, signOutUser, dark, setDark } = useContext(AuthContext);
   const navigate = useNavigate();
+
+  const handleDark = ()=>{
+    setDark(!dark)
+  }
+  console.log(dark)
+
   const handleSingOut = () =>{
     signOutUser();
     Swal.fire({
@@ -66,7 +72,7 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end items-center md:gap-2 md:ml-0 ">
-      <input type="checkbox" value="synthwave" className="toggle theme-controller" />
+      <input onClick={handleDark} type="checkbox" value="synthwave" className="toggle theme-controller" />
         {user ? (
           <>
             <div>

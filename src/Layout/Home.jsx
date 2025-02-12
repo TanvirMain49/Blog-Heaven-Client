@@ -9,7 +9,7 @@ import ContactUs from '../Component/ContactUs';
 
 const Home = () => {
     return (
-        <div>
+        <>
             <Banner></Banner>
             <BlogCards></BlogCards>
             <Newsletter></Newsletter>
@@ -17,7 +17,7 @@ const Home = () => {
             <ReviewSection></ReviewSection>
             <AboutUs></AboutUs>
             <ContactUs></ContactUs>
-        </div>
+        </>
     );
 };
 
